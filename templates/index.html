@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>AI Trans</title>
+    <link rel="stylesheet" href="../static/plugins/bootstrap-3.4.1-dist/bootstrap-3.4.1-dist/css/bootstrap.css">
+    <style>
+        body {
+            background-image: url("../static/imgs/pic.jpg");
+        }
+
+        .text_area {
+            width: 80%;
+            /*height: 9000px;*/
+            margin: 0 auto;
+        }
+
+        .input,
+        .output {
+            display: inline-block;
+        }
+
+        .button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body>
+
+<div class="page-header" style="text-align: center">
+    <h1>AI Trans</h1>
+    <small>GPT3 powered neural network translator</small>
+</div>
+
+<div class="text_area clearfix">
+    <form method="post" action="/trans">
+        <div class="agent row">
+            <div class="input col-xs-5" style="display: inline-block;">
+                <div class="sentence panel panel-default">
+                    <div class="panel-heading">
+                        <span style="font-weight: bold">Sentence</span>
+                        of the context of the word you want to know.
+                    </div>
+                    <div class="panel-body">
+                        <textarea name="sentence" cols="45" rows="10">{{sentence}}</textarea>
+                    </div>
+
+                </div>
+                <div class="word panel panel-default ">
+                    <div class="panel-heading">
+                        The
+                        <span style="font-weight: bold">word</span>
+                        or
+                        <span style="font-weight: bold">span of a sentence</span>
+                        you want to know.
+                    </div>
+
+                    <div class="panel-body">
+                        <textarea name="word" id="" cols="45" rows="1">{{word}}</textarea>
+                    </div>
+                </div>
+            </div>
+
+            <div class="button col-xs-2">
+                <button type="submit" class="btn btn-primary">Trans</button>
+            </div>
+
+            <div class="output col-xs-5" style="display: inline-block;">
+                <div class="sentence panel panel-default">
+                    <div class="panel-heading">
+                        <span style="font-weight: bold">Sentence</span>
+                        of the context of the word you want to know.
+                    </div>
+                    <div class="panel-body">
+                        <textarea name="explanation" cols="45" rows="10">{{explanation}}</textarea>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+</body>
+</html>
