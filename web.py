@@ -1,12 +1,15 @@
 from flask import Flask, render_template, request
 
 app = Flask(__name__)
-
+# GPT3服务器的IP地址
+GPT_Sever_IP = 
+# 端口
+PORT = 8000
 def GetResponse(sentence, word):
     import http.client
     import json
 
-    conn = http.client.HTTPConnection("52.53.227.127", 8000)
+    conn = http.client.HTTPConnection(f"{GPT_Sever_IP}", )
     payload = json.dumps({
         "prompt": '''Context: I need to throw a dinner party for three vegetarians.\nQuestion: What does "throw" mean here?\nExplanation: In this context, "throw" means to host or organize a dinner party. The phrase "throw a dinner party" is a colloquial expression that means to host a dinner event in one's home or at a restaurant. In the given context, the individual needs to organize a dinner party for three vegetarians.\n\nContext: {}\nQuestion: What does "{}" mean here?\nExplanation:'''.format(
             sentence, word),
@@ -19,7 +22,7 @@ def GetResponse(sentence, word):
         'User-Agent': 'Apifox/1.0.0 (https://www.apifox.cn)',
         'Content-Type': 'application/json',
         'Accept': '*/*',
-        'Host': '52.53.227.127:8000',
+        'Host': f'{GPT_Sever_IP} Sever IP:8000',
         'Connection': 'keep-alive'
     }
     conn.request("POST",
